@@ -10,14 +10,6 @@ var server = new Hapi.Server();
 server.connection({ port: 3000});
 
 console.log('check process.env.NODE_ENV: ', process.env.NODE_ENV);
-//If using MongoDB
-// var dbUrl = 'mongodb://'+config.get('database.username')+":"+config.get('database.password')+"@"+config.get('database.url')+'/realestate?authSource=admin';
-
-// var dbOptions = {
-//   db: { native: true },
-//   server: { poolSize: 100 }
-// };
-
 
 //If using InfluxDB
 
@@ -25,8 +17,8 @@ console.log('check process.env.NODE_ENV: ', process.env.NODE_ENV);
 var swaggerOptions = {
   produces: ['application/json', 'text/xml'],
   info: {
-    title: "Real Estate",
-    description: "Search properties"
+    title: "1PlanetSol",
+    description: "API for 1PlanetSol community impact"
   }
 };
 
