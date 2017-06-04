@@ -7,7 +7,7 @@ var internals = {};
 exports.staticFile = {
     tags: ['api'],
     handler : function(request, reply) {
-        DataLoad.processStaticFile(function(err, result){
+        DataLoad.processAndLoadCsvFile(function(err, result){
             if(err){
                 return reply('unsuccessful').code(404);
             } else {
