@@ -17,7 +17,7 @@ exports.processAndLoadCsvFile = function(cb){
 }
 
 csvToJsonParser = function(callback){
-    var fileName = "LG1499_Power.csv" //hardcoded for testing
+    var fileName = "LG1499_Power.csv" //hardcoded for testing (4 test files)
     var userId = 1499;
     const readPath = path.join('/tmp/', fileName);
     const parts = fileName.split('.');
@@ -37,30 +37,34 @@ csvToJsonParser = function(callback){
             var lineItem = line.split(','),
                 jsonLine = {};
 
-            if(fileName === 'LG1499_Power.csv' || 'LG_1499_Power.csv'){
+            if(fileName === 'LG1499_Power.csv' || 'LG1996_Power.csv'){
                 //Power Unit
                   jsonLine['dateTime'] = lineItem[0];
-                  jsonLine['userKW'] = lineItem[1];
+                  jsonLine['usedKW'] = lineItem[1];
                   jsonLine['generationKW'] = lineItem[2];
                   jsonLine['GridKW'] = lineItem[3];
 
-            } else if(fileName === 'LG1996_Energy.csv' || 'LG_1996_Energy.csv'){
+                  stats.writePoint('power-generated', {value: jsonLine['generationKW']}, {userId: userId}, jsonLine['dateTime']);
+                  stats.writePoint('power-used', {value: jsonLine['usedKW']}, {userId: userId}, jsonLine['dateTime']);
+                  stats.writePoint('grid-power', {value: jsonLine['GridKW']}, {userId: userId}, jsonLine['dateTime']);
+            } else if(fileName === 'LG1499_Energy.csv' || 'LG1996_Energy.csv'){
                 //Energy Unit
                   jsonLine['dateTime'] = lineItem[0];
-                  jsonLine['userKWH'] = lineItem[1];
+                  jsonLine['usedKWH'] = lineItem[1];
                   jsonLine['generationKWH'] = lineItem[2];
                   jsonLine['GridKWH'] = lineItem[3];
-            }
 
-            //write stats
-            stats.writePoint('energy-generated', {value: jsonLine['generationKW']}, {userId: userId}, jsonLine['dateTime']);
-//         stats.writePoint('energy-used', {value:1, query: request.query, error: err});
-            // ws.write(JSON.stringify(jsonLine) + ',');
-            //Alternative: call stats function directly is async can be handled here
+                  stats.writePoint('energy-generated', {value: jsonLine['generationKWH']}, {userId: userId}, jsonLine['dateTime']);
+                  stats.writePoint('energy-used', {value: jsonLine['usedKWH']}, {userId: userId}, jsonLine['dateTime']);
+                  stats.writePoint('grid-energy', {value: jsonLine['GridKWH']}, {userId: userId}, jsonLine['dateTime']);
+            }
 
             if(last){
                 console.log('reached end of file');
             }
+
+            setInterval(function () {
+            }, 4000);
 
         }
     },
