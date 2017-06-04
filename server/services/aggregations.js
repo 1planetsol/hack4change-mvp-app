@@ -10,7 +10,7 @@ var client = Influx({
 
 exports.findAllEnergyGenerated = function(cb){
   client.query('SELECT * FROM "energy-generated";', function(err, res){
-    console.log('response/error is ', res, err);
+    // console.log('response/error is ', res, err);
     cb(err, res);
   });
 };
@@ -55,4 +55,3 @@ exports.findAllGridPower = function(cb){
 //     // console.log('response/error is ', res, err);
 //     cb(err, res);
 // });
-

@@ -1,5 +1,6 @@
 const Ops = require('./controllers/ops');
 const DataLoad = require('./controllers/data-load.js');
+const Search = require('./controllers/aggregations.js');
 
 exports.endpoints = [
     { method: 'GET',   path: '/ops/ping', config: Ops.ping },
@@ -15,5 +16,4 @@ exports.endpoints = [
     // { method: 'GET',   path: '/stats/treesPlanted', config: Search.treesPlanted },
     // { method: 'GET',   path: '/stats/milesDriven', config: Search.milesDriven },
     // { method: 'GET',   path: '/stats/co2offset', config: Search.milesDriven }
-
 ];
