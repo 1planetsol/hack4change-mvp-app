@@ -1,4 +1,4 @@
-# 1PlaneSol
+# 1PlanetSol
 1PlanetSol is a non-profit bringing the benefits of solar to everyone.  Working with Austin Habitat for Humanity and The Texas Energy Poverty Research Institute, we're launching 1AustinSol in 2018 to bring you discounts at local businesses and free solar to low-income families in Austin.
 
 ## Repo: hack4change-mvp-app
