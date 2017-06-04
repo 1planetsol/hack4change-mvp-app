@@ -17,14 +17,14 @@ dbClient.query('SELECT * FROM ' + info.series.numName + " WHERE tag1='timestampR
 */
 exports.findAllEnergyGenerated = function(err, result){
   client.query('SELECT * FROM "energy-generated";', function(err, res){
-    console.log('response/error is ', res, err);
+    // console.log('response/error is ', res, err);
     return(err, res);
   });
 };
 
 exports.findAllPowerGenerated = function(err, result){
   client.query('SELECT * FROM "power-generated";', function(err, res){
-    console.log('response/error is ', res, err);
+    // console.log('response/error is ', res, err);
     return(err, res);
   });
 };
