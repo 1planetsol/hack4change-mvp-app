@@ -1,0 +1,73 @@
+/**
+Styles specific to 1planetsol.org
+*/
+.logo-container .logo{
+    overflow: hidden;
+    border: none;
+    height: 100px;
+    width: 100px;
+    float: left;
+}
+
+.blurred-container .motto{
+    color: #FFFFFF;
+	font-family: "futura-pt", sans-serif;
+    
+    top: 120px;
+    z-index: 3;
+
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 306px;
+    height: 0;
+}
+
+.tagline {
+    text-align: center;
+    font-family: "futura-pt", sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.about {
+    text-align: center;
+    font-family: "futura-pt", sans-serif;
+    font-size: 16px;
+}
+
+.subscribe {
+    text-align: center;
+    padding-top: 25px;
+}
+
+.ps-btn {
+    border-radius: 0px;
+    padding: 8px 42px;
+    border-color: black;
+    color: black;
+}
+
+.space-60{
+    height: 60px;
+    display: block;
+    width: 100%;
+}
+
+.space-25{
+    height: 25px;
+    display: block;
+    width: 100%;
+}
+
+.mobile-container{
+    background: #5f697a;
+    /*background: rgba(52, 172, 220, 0.98);*/
+}
+
+.img-mobile{
+    display: inline-block;
+    margin-bottom: 25px;
+    max-width: 500px;
+    max-height: 890px;
+}
