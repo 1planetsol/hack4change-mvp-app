@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="index.html">
+                <a href="Default.aspx">
                      <div class="logo-container">
                         <div class="logo">
 							<img src="assets/img/1planet_logo.png" />
@@ -47,7 +47,7 @@
 
             </div>
 		</div>
-        <div class="img-src" style="background-image: url('assets/img/1planet_cover.jpg')"></div>
+        <div class="img-src" style="background-image: url('assets/img/1planet_cover.jpg');"></div>
         <div class='img-src blur' style="background-image: url('assets/img/1planet_cover.jpg')"></div>
     </div>
 </div>     
@@ -65,16 +65,14 @@
 		<div class="space-25"></div>
 		<div class="about">
 			<div class="row">
-                <div class="col-sm-1"></div>
-				<div class="col-sm-10">
+				<div class="col-sm-12">
 					1PlanetSol is a non-profit bringing the benefits of solar to everyone. Working with Austin Habitat for Humanity and The Texas Energy Poverty Research Institute, we're launching 1AustinSol in 2018 to bring you discounts at local businesses and free solar to low-income families in Austin
 				</div>
-                <div class="col-sm-1"></div>
 			</div>
         </div>
         <div class="subscribe">
 			<div class="row">
-                <button id="subscribe" class="btn btn-default ps-btn" type="button"><strong>Subscribe</strong></button>
+                <button id="subscribe" class="btn btn-default ps-btn text-blue" type="button"><strong>Subscribe</strong></button>
 			</div>
 		</div>
 		<div class="space-60"></div>
@@ -90,19 +88,19 @@
             <div class="row">
                 <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
                     <div class="text-center">
-                        <img src="assets/img/mobile_stats.png" alt="Mobile App" class="img-rounded img-responsive img-mobile" />
+                        <img src="assets/img/1planetsol_landingpage.png" alt="Mobile App" class="img-rounded img-responsive img-mobile" />
                     </div>
                 </div>
                 <div class="col-md-5 col-sm-12">
-                                <h1 class="text-center">The Mobile App
+                    <h1 class="text-center text-blue">The Mobile App
                                 
-                                <!--<small class="subtitle">Solar To Go</small>-->
+                    <!--<small class="subtitle">Solar To Go</small>-->
 
-                                </h1>
-                                <hr />
-                                <p>
-                                The 1PlanetSol mobile app will be your home for the status of your solar community, membership in the community, and information about the rewards program.
-                                </p>
+                    </h1>
+                    <hr />
+                    <p>
+                    The 1PlanetSol mobile app will be your home for the status of your solar community, membership in the community, and information about the rewards program.
+                    </p>
                 </div>
             </div>
             
