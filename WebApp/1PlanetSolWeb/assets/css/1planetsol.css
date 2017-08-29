@@ -92,24 +92,67 @@ Styles specific to 1planetsol.org
 }
 
 .img-mission {
-    /*
-    position:fixed;
-    width:100%;
-    height:100%;
-    background-repeat:no-repeat;
-    background-size:cover;
+    background-image: url('../img/hot_kid.jpg'); 
     background-position: center center;
-        */
     background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('assets/img/kids_solar.jpg');
-    height: 100%;
-    width: 100%;
-    max-width: 100%;
+    overflow: hidden;
+    height: 200px;
+}
+
+.img-carpenter {
+    background-image: url('../img/carpenter.jpg'); 
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+    height: 250px;
+}
+
+.img-frame {
+    background-image: url('../img/frame.jpg'); 
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+    height: 250px;
+}
+
+.img-rooftop {
+    background-image: url('../img/rooftop.jpg'); 
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+    height: 250px;
+}
+
+.img-family {
+    background-image: url('../img/family.png'); 
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+    height: 250px;
+}
+
+.img-kidsolar {
+    background-image: url('../img/kids_solar_big 2.png'); 
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+    height: 200px;
+}
+
+.img-roofpanel {
+    background-image: url('../img/roofpanel.jpg'); 
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+    height: 500px;
 }
 
 .ps-center {
     display: table;
     margin: 0 auto;
     text-align: center;
+}
+
+.ps-rowpad {
+    padding-bottom: 5px;
 }
