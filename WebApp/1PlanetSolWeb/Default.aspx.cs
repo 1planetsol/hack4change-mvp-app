@@ -17,6 +17,14 @@ namespace _1PlanetSolWeb
     {
 
         private static JavaScriptSerializer cereal = new JavaScriptSerializer();
+        private static string[] meterURIs = {
+                "http://lg1654.d.lighthousesolar.com/cgi-bin/egauge-show?a&n=1&S&s=0&c",
+                "http://lg1236.d.lighthousesolar.com/cgi-bin/egauge-show?a&n=1&S&s=0&c",
+                "http://lg1009.d.lighthousesolar.com/cgi-bin/egauge-show?a&n=1&S&s=0&c",
+                "http://lg1498.d.lighthousesolar.com/cgi-bin/egauge-show?a&n=1&S&s=0&c",
+                "http://lg1499.d.lighthousesolar.com/cgi-bin/egauge-show?a&n=1&S&s=0&c",
+                "http://lg1996.d.lighthousesolar.com/cgi-bin/egauge-show?a&n=1&S&s=0&c"
+        };
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,47 +43,50 @@ namespace _1PlanetSolWeb
             List<string> solarData = new List<string>();
             try
             {
-                //button1.Text = "You clicked me";
-                //button2.Text = "Click Me!";
-                string uri = "http://lg1996.d.lighthousesolar.com/cgi-bin/egauge-show?b&n=30&c";
-                string uri2 = "http://lg1996.d.lighthousesolar.com/cgi-bin/egauge-show?a&n=1&S&s=0&c";
-                string uri3 = "http://lg1499.d.lighthousesolar.com/cgi-bin/egauge-show?a&n=30&S&s=0&c";
+                double energy = 0d;
+
+                //string uri2 = "http://lg1996.d.lighthousesolar.com/cgi-bin/egauge-show?a&n=1&S&s=0&c";
                 //endpoint.Text = uri2;
-                HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(uri2);
-                httpRequest.Credentials = CredentialCache.DefaultCredentials;
-                HttpWebResponse httpResponse = (HttpWebResponse)httpRequest.GetResponse();
-
-                Stream dataStream = httpResponse.GetResponseStream();
-                using (TextFieldParser parser = new TextFieldParser(dataStream))
+                HttpWebRequest httpRequest;
+                HttpWebResponse httpResponse;
+                //Stream dataStream;
+                foreach (string uri in meterURIs)
                 {
-                    string header = parser.ReadLine();
-                    //parser.TextFieldType = FieldType.Delimited;
-                    parser.Delimiters = new string[] { "," };
+                    httpRequest = (HttpWebRequest)WebRequest.Create(uri);
+                    httpRequest.Credentials = CredentialCache.DefaultCredentials;
+                    httpResponse = (HttpWebResponse)httpRequest.GetResponse();
 
-                    while (!parser.EndOfData)
+                    //dataStream = httpResponse.GetResponseStream();
+                    using (TextFieldParser parser = new TextFieldParser(httpResponse.GetResponseStream()))
                     {
-                        //Process row
-                        string[] fields = parser.ReadFields();
-                        for (int i = 0; i < fields.Length; i++)
-                        {
-                            if (i == 2)
-                            {
-                                double energy = Convert.ToDouble(fields[i]);
+                        string header = parser.ReadLine();
+                        parser.Delimiters = new string[] { "," };
 
-                                //solarData.Add(Math.Round((energy), 4));
-                                solarData.Add(DateTime.Now.ToLongTimeString());
-                                solarData.Add(Math.Round((energy * .106), 5).ToString());
-                                solarData.Add(Math.Round((energy * .106), 5).ToString());
-                                //solarData.Add(Math.Round((energy * .703), 2));
-                                //solarData.Add(Math.Round((energy * 1.7), 2));
-                                //solarData.Add(Math.Round((energy * .018), 2));
-                                break;
+                        while (!parser.EndOfData)
+                        {
+                            //Process row
+                            string[] fields = parser.ReadFields();
+                            for (int i = 0; i < fields.Length; i++)
+                            {
+                                if (i == 2)
+                                {
+                                    energy += Convert.ToDouble(fields[i]);
+
+                                    //solarData.Add(Math.Round((energy), 4));
+                                    //solarData.Add(Math.Round((energy * .106), 2));
+                                    //solarData.Add(Math.Round((energy * .703), 2));
+                                    //solarData.Add(Math.Round((energy * 1.7), 2));
+                                    //solarData.Add(Math.Round((energy * .018), 2));
+                                    break;
+                                }
                             }
                         }
                     }
                 }
 
-                //graph_data.Value = "34,43,65,21,5,43,43,32,32,12,31,32,12,32,23,12";
+                solarData.Add(DateTime.Now.ToLongTimeString());
+                solarData.Add(Math.Round((energy * .106), 2).ToString());
+                solarData.Add(Math.Round((energy * .703), 5).ToString());
 
             }
             catch (Exception e)

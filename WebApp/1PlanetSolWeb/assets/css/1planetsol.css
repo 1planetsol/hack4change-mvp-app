@@ -71,7 +71,7 @@ Styles specific to 1planetsol.org
 .img-mobile {
     display: inline-block;
     margin-bottom: 25px;
-    max-width: 500px;
+    max-width: 500px !important;
     max-height: 890px;
 }
 
@@ -92,6 +92,10 @@ Styles specific to 1planetsol.org
 
 .text-blue {
     color:  rgba(52, 172, 220, 0.98);
+}
+
+.ps-green {
+    color: #bbc858;
 }
 
 .img-mission {
