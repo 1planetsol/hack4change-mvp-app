@@ -19,6 +19,7 @@
     <!--     Font Awesome     -->
     <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Nunito:300,400' rel='stylesheet' type='text/css' />
   
 </head>
 
@@ -48,8 +49,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="mission.html" style="color: #000000;">Mission</a></li>
-                            <li><a href="news.html" style="color: #000000;">News</a></li>
+                            <li><a href="mission.html" class="ps-topnav ps-gray">Mission</a></li>
+                            <li><a href="news.html" class="ps-topnav ps-gray">News</a></li>
                         </ul>
 
                     </div><!-- /.navbar-collapse -->
@@ -153,7 +154,47 @@
                         <!--text-->
                     </div>
                     <div class="row">
-                        <div class="col-sm-12"></div>
+                        <div class="col-sm-12">
+                            <div id="carousel">
+                                <!--
+                IMPORTANT - This carousel can have a special class for a smooth transition "gsdk-transition". Since javascript cannot be overwritten, if you want to use it, you can use the bootstrap.js or bootstrap.min.js from the GSDKit or you can open your bootstrap.js file, search for "emulateTransitionEnd(600)" and change it with "emulateTransitionEnd(1200)"
+
+        -->
+                                <div id="carousel-charts" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carousel-charts" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carousel-charts" data-slide-to="1"></li>
+                                        <li data-target="#carousel-charts" data-slide-to="2"></li>
+                                        <li data-target="#carousel-charts" data-slide-to="3"></li>
+                                    </ol>
+
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        <div class="item active img-carousel">
+                                            <img src="assets/img/membership.png" alt="Membership" class="d-block img-fluid">
+                                        </div>
+                                        <div class="item img-carousel">
+                                            <img src="assets/img/familieshelped.png" alt="Families Helped" class="d-block img-fluid">
+                                        </div>
+                                        <div class="item img-carousel">
+                                            <img src="assets/img/savings.png" alt="Savings" class="d-block img-fluid">
+                                        </div>
+                                        <div class="item img-carousel">
+                                            <img src="assets/img/kw_installed.png" alt="Total kW Installed" class="d-block img-fluid">
+                                        </div>
+                                    </div>
+
+                                    <!-- Controls -->
+                                    <a class="left carousel-control" href="#carousel-charts" data-slide="prev">
+                                        <span class="fa fa-angle-left"></span>
+                                    </a>
+                                    <a class="right carousel-control" href="#carousel-charts" data-slide="next">
+                                        <span class="fa fa-angle-right"></span>
+                                    </a>
+                                </div>
+                            </div> <!-- end carousel -->
+                        </div>
                         <!--Image Carousel-->
                     </div>
                     <div class="row">

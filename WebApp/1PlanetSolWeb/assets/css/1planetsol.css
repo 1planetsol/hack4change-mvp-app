@@ -11,15 +11,15 @@ Styles specific to 1planetsol.org
 
 .blurred-container .motto{
     color: #FFFFFF;
-	font-family: "futura-pt", sans-serif;
+	/*font-family: "futura-pt", sans-serif;*/
     
-    top: 120px;
+    top: 140px;
     z-index: 3;
 
     display: block;
     margin: 0 auto;
     position: relative;
-    width: 306px;
+    width: 400px;
     height: 0;
 }
 
@@ -44,7 +44,10 @@ Styles specific to 1planetsol.org
 .ps-btn {
     border-radius: 0px;
     padding: 8px 42px;
-    border-color: black;    
+    border-color: black;
+    font-family: 'Nunito', sans-serif; 
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 
 .space-60 {
@@ -77,7 +80,7 @@ Styles specific to 1planetsol.org
 }
 
 .subtitle-mission {
-    font-size: 14px;
+    font-size: 18px;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -147,6 +150,10 @@ Styles specific to 1planetsol.org
     height: 500px;
 }
 
+.img-carousel {
+    background-size: cover;
+}
+
 .ps-center {
     display: table;
     margin: 0 auto;
@@ -155,4 +162,41 @@ Styles specific to 1planetsol.org
 
 .ps-rowpad {
     padding-bottom: 5px;
+}
+
+.ps-font-Nunito {
+    font-family: 'Nunito', sans-serif;
+}
+
+.ps-fontsize-20 {
+    font-size: 20px;
+}
+
+.ps-fontsize-25 {
+    font-size: 25px;
+}
+
+.ps-underline {
+    text-decoration: underline;
+}
+
+.ps-topnav {
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.ps-stats {
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.ps-gray {
+    color: #5f697a !important;
+}
+
+.ps-white {
+    color: #ffffff !important;
 }

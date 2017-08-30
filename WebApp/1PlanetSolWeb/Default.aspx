@@ -28,8 +28,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-					<li><a href="mission.html">Mission</a></li>
-					<li><a href="news.html">News</a></li>
+					<li><a href="mission.html" style="font-size: 20px; font-family: 'Nunito', sans-serif;">Mission</a></li>
+					<li><a href="news.html" style="font-size: 20px; font-family: 'Nunito', sans-serif;">News</a></li>
                </ul>
               
             </div><!-- /.navbar-collapse -->
@@ -39,13 +39,16 @@
     
     <div class='blurred-container'>
         <div class="row">
+            <div class="col-sm-12">
             <div class="motto">
-
-                <p>Families Powered:&nbsp;6</p>
-                <p>Dollars Saved:&nbsp;$<span id="amountSaved"></span></p>
-                <p>Tonnes CO<sub>2</sub>:&nbsp;<span id="tonnes"></span></p>
+                
+                <p class="ps-stats">Families Powered:&nbsp;6</p>
+                <p class="ps-stats">Dollars Saved:&nbsp;$<span id="amountSaved"></span></p>
+                <p class="ps-stats">Tonnes CO<sub>2</sub>:&nbsp;<span id="tonnes"></span></p>
 
             </div>
+            </div>
+
 		</div>
         <div class="img-src" style="background-image: url('assets/img/1planet_cover.jpg');"></div>
         <div class='img-src blur' style="background-image: url('assets/img/1planet_cover.jpg')"></div>
@@ -148,17 +151,17 @@
                     $('#amountSaved').html(obj[1]);
                     $('#tonnes').html(obj[2]);
                 }
-                else
-                    alert('data success but no data');
+                //else
+                //    alert('data success but no data');
             });
 
             solarData.error(function (data) {
                 //var obj = JSON.parse(data.d);
-                alert('data error: ' + data.value);
+                //alert('data error: ' + data.value);
             });
             solarData.fail(function (data) {
                 //var obj = JSON.parse(data.d);
-                alert('data fail: ' + data.d);
+                //alert('data fail: ' + data.d);
             });
             solarData.complete(poll);
 

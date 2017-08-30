@@ -1376,7 +1376,10 @@ input.ct-red + span + label + span.switch-right {
     border-bottom: 1px solid rgba(255, 255, 255, 0.6); }
 
 .navbar-ct-blue {
-  background-color: rgba(52, 172, 220, 0.98); }
+  /*background-color: rgba(52, 172, 220, 0.98);*/
+  padding-top: inherit;
+  background-color: #4a7bc1;
+}
 
 .navbar-ct-azzure {
   background-color: rgba(91, 202, 255, 0.98); }

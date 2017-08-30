@@ -101,12 +101,18 @@ $(document).scroll(function() {
         if(transparent) {
             transparent = false;
             $('nav[role="navigation"]').removeClass('navbar-transparent');
+            
         }
+        $('.ps-topnav').removeClass('ps-gray');
+        $('.ps-topnav').addClass('ps-white');
     } else {
         if( !transparent ) {
             transparent = true;
             $('nav[role="navigation"]').addClass('navbar-transparent');
+            
         }
+        $('.ps-topnav').removeClass('ps-white');
+        $('.ps-topnav').addClass('ps-gray');
     }
 });
 
