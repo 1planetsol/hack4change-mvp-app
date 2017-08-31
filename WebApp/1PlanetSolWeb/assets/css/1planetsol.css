@@ -26,14 +26,14 @@ Styles specific to 1planetsol.org
 
 .tagline {
     text-align: center;
-    font-family: "futura-pt", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 26px;
-    font-weight: 600;
+    font-weight: 300;
 }
 
 .about {
     text-align: center;
-    font-family: "futura-pt", sans-serif;
+    font-family: 'Nunito', sans-serif; 
     font-size: 16px;
 }
 
@@ -46,9 +46,10 @@ Styles specific to 1planetsol.org
     border-radius: 0px;
     padding: 8px 42px;
     border-color: black;
-    font-family: 'Nunito', sans-serif; 
-    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+	letter-spacing: 1px;
+	opacity: 0.8;
 }
 
 .space-60 {
@@ -93,6 +94,10 @@ Styles specific to 1planetsol.org
 
 .text-blue {
     color:  rgba(52, 172, 220, 0.98);
+}
+
+.text-blk {
+	color:  #000000;
 }
 
 .ps-green {
