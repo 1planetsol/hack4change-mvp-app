@@ -18,9 +18,10 @@ Styles specific to 1planetsol.org
 
     display: block;
     margin: 0 auto;
-    position: relative;
+    width: 100%;
+    /*position: relative;
     width: 400px;
-    height: 0;
+    height: 0;*/
 }
 
 .tagline {
@@ -190,10 +191,28 @@ Styles specific to 1planetsol.org
 
 }
 
-.ps-stats {
+.ps-statsHeader {
     font-size: 20px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 auto;
+}
+
+.ps-stats {
+    font-size: 35px;
+    font-family: 'Lora', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.ps-statsSmall {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 

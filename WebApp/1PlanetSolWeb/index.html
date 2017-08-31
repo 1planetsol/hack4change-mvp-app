@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -20,6 +20,7 @@
     <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Nunito:300,400' rel='stylesheet' type='text/css' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Lora" rel="stylesheet">
   
 </head>
 
@@ -59,21 +60,65 @@
     </div><!--  end container-->
     
     <div class='blurred-container'>
-        <div class="row">
-            <div class="col-sm-12">
-            <div class="motto">
-                
-                <p class="ps-stats">Families Powered:&nbsp;6</p>
-                <p class="ps-stats">Dollars Saved:&nbsp;$<span id="amountSaved"></span></p>
-                <p class="ps-stats">Tonnes CO<sub>2</sub>:&nbsp;<span id="tonnes"></span></p>
-
+        <div class="motto">
+            <div class="hidden-sm hidden-xs">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Families</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Dollars</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Tonnes</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row ps-rowpad">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Powered</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Saved</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">CO<sub>2</sub>:</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-stats">6</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-stats">$<span id="amountSaved"></span></p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-stats"><span id="tonnes"></span></p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
             </div>
+            <div class="visible-sm visible-xs">
+                <p class="ps-statsSmall">Families Powered:&nbsp;6</p>
+                <p class="ps-statsSmall">Dollars Saved:&nbsp;$<span id="amountSavedSmall"></span></p>
+                <p class="ps-statsSmall">Tonnes CO<sub>2</sub>:&nbsp;<span id="tonnesSmall"></span></p>
             </div>
+        </div>
 
-		</div>
         <div class="img-src" style="background-image: url('assets/img/1planet_cover.jpg');"></div>
         <div class='img-src blur' style="background-image: url('assets/img/1planet_cover.jpg')"></div>
     </div>
+
 </div>     
     
 <div class="main">
@@ -82,7 +127,7 @@
         <div class="tagline">
             <div class="row">
                 <div class="col-md-12">
-				POWER FOR ALL STARTS WITH YOU
+				    POWER FOR ALL STARTS WITH YOU
 				</div>
             </div>
         </div>
@@ -110,7 +155,7 @@
         <div id="extras">
             <div class="space-30"></div>
             <div class="row">
-                <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                <div class="col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
                     <div id="carousel text-center">
                         <div id="carousel-mobile" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
@@ -145,7 +190,7 @@
                     </div>
                     -->
                 </div>
-                <div class="col-md-5 col-sm-12">
+                <div class="col-md-6 col-sm-12">
                     <h1 class="text-center ps-green ps-font-Nunito">The Mobile App
                                 
                     <!--<small class="subtitle">Solar To Go</small>-->
@@ -199,10 +244,15 @@
                 if (data.d) {
                     //alert('data success d: ' + data.d);
                     var obj = JSON.parse(data.d);
-                    //alert(obj[0] + ' ' + obj[1] + ' ' + obj[2]);
-                    //$('#datetime').html(obj[0]);
-                    $('#amountSaved').html(obj[1]);
-                    $('#tonnes').html(obj[2]);
+                    var energy = obj.series[0].values;
+                    var saved = energy * .106;
+                    var tonnes = energy * .703;
+
+                    $('#amountSaved').html(saved);
+                    $('#tonnes').html(tonnes);
+
+                    $('#amountSaved').html(saved);
+                    $('#tonnes').html(tonnes);
                 }
                 //else
                 //    alert('data success but no data');
