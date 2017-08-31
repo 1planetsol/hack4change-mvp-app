@@ -86,7 +86,7 @@ namespace _1PlanetSolWeb
 
                 solarData.Add(DateTime.Now.ToLongTimeString());
                 solarData.Add(Math.Round((energy * .106), 2).ToString());
-                solarData.Add(Math.Round((energy * .703), 5).ToString());
+                solarData.Add(Math.Round((energy * .000703), 5).ToString());
 
             }
             catch (Exception e)
@@ -104,7 +104,6 @@ namespace _1PlanetSolWeb
 
             return cereal.Serialize(success);
         }
-
     }
 }
 

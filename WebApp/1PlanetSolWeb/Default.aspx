@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
 <div id="navbar-full">
     <div class="container">
         <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
@@ -16,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="Default.aspx">
+                <a href="index.html">
                      <div class="logo-container">
                         <div class="logo">
 							<img src="assets/img/1planet_logo.png" />
@@ -38,32 +39,99 @@
     </div><!--  end container-->
     
     <div class='blurred-container'>
-        <div class="row">
-            <div class="col-sm-12">
-            <div class="motto">
-                
-                <p class="ps-stats">Families Powered:&nbsp;6</p>
-                <p class="ps-stats">Dollars Saved:&nbsp;$<span id="amountSaved"></span></p>
-                <p class="ps-stats">Tonnes CO<sub>2</sub>:&nbsp;<span id="tonnes"></span></p>
-
+        <div class="motto">
+            <div class="hidden-sm hidden-xs">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Families</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Dollars</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Tonnes CO<sub>2</sub></p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row ps-rowpad">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Powered</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Saved</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-statsHeader">Offset</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-stats">6</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-stats">$<span id="amountSaved"></span></p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2 ps-center">
+                        <p class="ps-stats"><span id="tonnes"></span></p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
             </div>
+            <div class="visible-sm visible-xs">
+                <p class="ps-statsSmall">Families Powered:&nbsp;6</p>
+                <p class="ps-statsSmall">Dollars Saved:&nbsp;$<span id="amountSavedSmall"></span></p>
+                <p class="ps-statsSmall">Tonnes CO<sub>2</sub>:&nbsp;<span id="tonnesSmall"></span></p>
             </div>
+        </div>
 
-		</div>
         <div class="img-src" style="background-image: url('assets/img/1planet_cover.jpg');"></div>
         <div class='img-src blur' style="background-image: url('assets/img/1planet_cover.jpg')"></div>
     </div>
-</div>     
+
+</div>
+
+<div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
+			</div>
+			<div class="modal-body">
+				<p class="ps-font-Nunito ps-rowpad">Thank you for your interest in 1PlanetSol, and bringing the benefits of solar to everyone!</p>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-envelope"></i>
+					</span>
+					<input type="text" class="form-control"/>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Invite me to the Launch!</button>
+			</div>
+		</div>
+	</div>
+</div>   
     
 <div class="main">
     <div class="container tim-container">
 		<div class="space-60"></div>
-        <div class="tagline">
-            <div class="row">
-                <div class="col-md-12">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="tagline">
 				POWER FOR ALL STARTS WITH YOU
 				</div>
-            </div>
+			</div>
         </div>
 		<div class="space-25"></div>
 		<div class="about">
@@ -75,7 +143,7 @@
         </div>
         <div class="subscribe">
 			<div class="row">
-                <button id="subscribe" class="btn btn-default ps-btn text-blue" type="button"><strong>Subscribe</strong></button>
+                <button id="subscribe" class="btn btn-default ps-btn text-blk" type="button" data-toggle="modal" data-target="#subscribeModal">Invite me to the launch!</button>
 			</div>
 		</div>
 		<div class="space-60"></div>
@@ -89,7 +157,7 @@
         <div id="extras">
             <div class="space-30"></div>
             <div class="row">
-                <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                <div class="col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
                     <div id="carousel text-center">
                         <div id="carousel-mobile" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
@@ -124,34 +192,25 @@
                     </div>
                     -->
                 </div>
-                <div class="col-md-5 col-sm-12">
+                <div class="col-md-6 col-sm-12">
                     <h1 class="text-center ps-green ps-font-Nunito">The Mobile App
                                 
                     <!--<small class="subtitle">Solar To Go</small>-->
 
                     </h1>
                     <hr />
-                    <p style="color: #FFFFFF;">The 1PlanetSol mobile app will be your home for the status of your solar community, membership in the community, and information about the rewards program.</p>
+                    <p style="color: #FFFFFF; font-family: 'Nunito', sans-serif;">The 1PlanetSol mobile app will be your home for the status of your solar community, membership in the community, and information about the rewards program.</p>
                 </div>
             </div>
             
         </div>
-    <!--     end extras -->    
+  
     </div>
 <!-- end container -->
 
 </div>
 
-
-<!-- end main -->
-
-
 <script type="text/javascript">
-    /*
-	$('.carousel').carousel({
-      interval: 4000
-    });
-    */
 
     var fetchData = function (json, dataURL) {
         return $.ajax({
@@ -167,6 +226,7 @@
     (function poll() {
         setTimeout(function () {
             var solarData = fetchData('', 'Default.aspx/GetSolarData');
+            //var solarData = fetchData('', 'http://34.201.150.94/data/getRecent?timePeriod=day');
             solarData.done(function (data) {
                 //var obj = JSON.parse(data.d);
             });
@@ -178,6 +238,8 @@
                     //$('#datetime').html(obj[0]);
                     $('#amountSaved').html(obj[1]);
                     $('#tonnes').html(obj[2]);
+                    $('#amountSavedSmall').html(obj[1]);
+                    $('#tonnesSmall').html(obj[2]);
                 }
                 //else
                 //    alert('data success but no data');

@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-sm-1"></div>
                     <div class="col-sm-2 ps-center">
-                        <p class="ps-statsHeader">Tonnes</p>
+                        <p class="ps-statsHeader">Tonnes CO<sub>2</sub></p>
                     </div>
                     <div class="col-sm-2"></div>
                 </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-sm-1"></div>
                     <div class="col-sm-2 ps-center">
-                        <p class="ps-statsHeader">CO<sub>2</sub>:</p>
+                        <p class="ps-statsHeader">Offset</p>
                     </div>
                     <div class="col-sm-2"></div>
                 </div>
@@ -164,7 +164,7 @@
         </div>
         <div class="subscribe">
 			<div class="row">
-                <button id="subscribe" class="btn btn-default ps-btn text-blk" type="button" data-toggle="modal" data-target="#subscribeModal">Subscribe</button>
+                <button id="subscribe" class="btn btn-default ps-btn text-blk" type="button" data-toggle="modal" data-target="#subscribeModal">Invite me to the launch!</button>
 			</div>
 		</div>
 		<div class="space-60"></div>
@@ -269,7 +269,7 @@
                     var obj = JSON.parse(data.d);
                     var energy = obj.series[0].values;
                     var saved = energy * .106;
-                    var tonnes = energy * .703;
+                    var tonnes = energy * .000703;
 
                     $('#amountSaved').html(saved);
                     $('#tonnes').html(tonnes);
