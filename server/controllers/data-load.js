@@ -6,8 +6,13 @@ var internals = {};
 
 exports.staticFile = {
     tags: ['api'],
+    validate: {
+        query: Joi.object({
+            userId: Joi.number().required()
+        }).unknown()
+    },
     handler : function(request, reply) {
-        DataLoad.processAndLoadCsvFile(function(err, result){
+        DataLoad.processAndLoadCsvFile(request.query.userId, function(err, result){
             if(err){
                 return reply('unsuccessful').code(404);
             } else {
