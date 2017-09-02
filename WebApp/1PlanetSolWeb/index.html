@@ -227,22 +227,22 @@
         return $.ajax({
             data: json,
             dataType: "json",
-            //url: 'https://us15.api.mailchimp.com/3.0/lists/a191a6cb8b/members/',
+            // url: 'https://us15.api.mailchimp.com/3.0/lists/a191a6cb8b/members/',
             url: dataURL,
-            type: "POST",
+            type: "GET",
             contentType: "application/json;charset=utf-8"
         });
     };
 
     (function poll() {
         setTimeout(function () {
-            var solarData = fetchData('', '/data/getRecent?timePeriod=day');
+            var solarData = fetchData('', 'http://localhost:3000/data/getRecent?timePeriod=day');
             solarData.done(function (data) {
                 //var obj = JSON.parse(data.d);
             });
             solarData.success(function (data) {
                 if (data.d) {
-                    //alert('data success d: ' + data.d);
+                    console.log('data success d: ' + data.d);
                     var obj = JSON.parse(data.d);
                     var energy = obj.series[0].values;
                     var saved = energy * .106;
@@ -260,11 +260,11 @@
 
             solarData.error(function (data) {
                 //var obj = JSON.parse(data.d);
-                //alert('data error: ' + data.value);
+                console.log('data error: ' + data.value);
             });
             solarData.fail(function (data) {
                 //var obj = JSON.parse(data.d);
-                //alert('data fail: ' + data.d);
+                console.log('data fail: ' + data.d);
             });
             solarData.complete(poll);
 

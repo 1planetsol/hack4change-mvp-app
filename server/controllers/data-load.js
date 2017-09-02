@@ -1,6 +1,6 @@
 var Boom = require('boom');
 var Joi = require('joi');
-var DataLoad = require('../services/data-load.js');
+// var DataLoad = require('../services/data-load.js'); //influx version issue, commenting temporarily
 
 var internals = {};
 

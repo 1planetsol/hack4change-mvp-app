@@ -45,6 +45,12 @@ var influx = new Influx.InfluxDB({
  ]
 })
 
+var influxW = new Influx.InfluxDB({
+ host: 'localhost',
+ port: 8086,
+ database: 'sol_time_series_stats'
+})
+
 //curl -i -XPOST 'http://localhost:8086/write?db=mydb' --data-binary 
 //measurement,tagkey=tagval,tagkey=tagval fieldkey=fieldval timestamp
 //'cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000000'
@@ -57,9 +63,23 @@ exports.writePoint = function(series, values, tags, timestamp) {
     console.log(' - timestamp: '+timestamp); //Convert file's timestamp field to an ISO format
     // console.log(' - tags  : '+JSON.stringify(tags));
 
-    client.writePoint(series, values, tags, timestamp, function(err){
-        err && console.error('InfluxDB: '+err);
-    });
+  //code for old version
+    // client.writePoint(series, values, tags, timestamp, function(err){
+    //     err && console.error('InfluxDB: '+err);
+    // });
+
+      influxW.writePoints([
+      {
+        measurement: series,
+        tags: JSON.stringify(tags),
+        fields: { value: values },
+        timestamp: timestamp,
+      }
+    ], {
+      database: 'sol_time_series_stats',
+      retentionPolicy: '5d',
+      precision: 's'
+    })
 };
 
 exports.searchMeasurements = function(queryString, callback){
