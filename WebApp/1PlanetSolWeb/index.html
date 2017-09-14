@@ -236,7 +236,7 @@
 
     (function poll() {
         setTimeout(function () {
-            var solarData = fetchData('', 'http://localhost:3000/data/getRecent?timePeriod=day');
+            var solarData = fetchData('', ':3000/data/getRecent?timePeriod=day');
             solarData.done(function (data) {
                 //var obj = JSON.parse(data.d);
             });

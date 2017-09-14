@@ -7,7 +7,13 @@ exports.endpoints = [
     { method: 'GET',   path: '/ops/ping', config: Ops.ping },
     { method: 'GET',   path: '/ops/status', config: Ops.status },
     // { method: 'GET',   path: '/load/static', config: DataLoad.staticFile }, //influx version issue, commenting temporarily
-    { method: 'GET',   path: '/data/getRecent', config: Data.getStats },
+    { config: {
+        cors: {
+            origin: ['*']
+            }
+        },
+        method: 'GET',   path: '/data/getRecent', config: Data.getStats 
+    },
     //following endpoints are currently not in use
     // { method: 'GET',   path: '/search/findAllEnergyGenerated', config: Search.findAllEnergyGenerated },
     // { method: 'GET',   path: '/search/findAllPowerGenerated', config: Search.findAllPowerGenerated },
