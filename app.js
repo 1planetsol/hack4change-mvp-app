@@ -7,7 +7,9 @@ const Routes = require('./server/routes');
 
 //create a new server
 var server = new Hapi.Server();
-server.connection({ port: 3000});
+server.connection({ port: 3000}, 
+                  {routes: {cors:true}}
+                  );
 
 console.log('check process.env.NODE_ENV: ', process.env.NODE_ENV);
 
