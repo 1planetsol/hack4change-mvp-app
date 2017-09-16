@@ -20,7 +20,8 @@ exports.getStats = {
                 if(err){
                     return reply('unsuccessful').code(404);
                 } else {
-                    return reply(result).code(200);
+                    var finalResult = JSON.stringify(result); //check
+                    return reply(finalResult).code(200);
                 }
                 
             })

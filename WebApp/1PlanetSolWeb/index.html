@@ -225,8 +225,8 @@
 
     var fetchData = function (json, dataURL) {
         return $.ajax({
-            data: json,
-            dataType: "json",
+            // data: json,
+            dataType: "jsonp",
             // url: 'https://us15.api.mailchimp.com/3.0/lists/a191a6cb8b/members/',
             url: dataURL,
             type: "GET",
@@ -236,11 +236,13 @@
 
     (function poll() {
         setTimeout(function () {
-            var solarData = fetchData('', 'http://localhost:3000/data/getRecent?timePeriod=day');
+            var solarData = fetchData('', 'http://34.201.150.94:3000/data/getRecent?timePeriod=day');
+            console.log('full function from ajax: ', solarData);
             solarData.done(function (data) {
                 //var obj = JSON.parse(data.d);
             });
             solarData.success(function (data) {
+                console.log('Results are in! ', data);
                 if (data.d) {
                     console.log('data success d: ' + data.d);
                     var obj = JSON.parse(data.d);
@@ -260,11 +262,11 @@
 
             solarData.error(function (data) {
                 //var obj = JSON.parse(data.d);
-                console.log('data error: ' + data.value);
+                console.dir('data error: ' + data);
             });
             solarData.fail(function (data) {
                 //var obj = JSON.parse(data.d);
-                console.log('data fail: ' + data.d);
+                console.dir('data fail: ' + data);
             });
             solarData.complete(poll);
 

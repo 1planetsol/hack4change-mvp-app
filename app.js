@@ -9,7 +9,7 @@ const Routes = require('./server/routes');
 var server = new Hapi.Server();
 server.connection({ port: 3000}, 
                   {routes: {cors: {
-                                origin: ['*']
+                                origin: ['*', '34.201.150.94']
                                 }
                             }
                   });
