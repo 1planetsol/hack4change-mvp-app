@@ -4,6 +4,7 @@ const Hapi = require('hapi');
 const Inert = require('inert');
 const Vision = require('vision');
 const Routes = require('./server/routes');
+const scheduler = require('./server/scheduler');
 
 //create a new server
 var server = new Hapi.Server();

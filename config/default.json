@@ -1,4 +1,9 @@
 {
+  // "database": {
+  //   "url": "localhost:27017",
+  //   "username": "soluser",
+  //   "password": "sol1234"
+  // },
   "influx": {
       "enabled": true,
       "host": "localhost",
