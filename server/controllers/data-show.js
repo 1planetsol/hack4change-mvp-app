@@ -8,8 +8,8 @@ exports.getStats = {
     tags: ['api'],
     validate: {
         query: Joi.object({
-            timePeriod: Joi.string().required()
-            //possible values = 'day', 'hour'
+            timePeriod: Joi.string().required(), // possible values = 'day', 'hour'
+            callbackFn: Joi.string().required() // client function to use for wrapping jsonP
         }).unknown()
     },
     handler : function(request, reply) {
@@ -20,7 +20,8 @@ exports.getStats = {
                 if(err){
                     return reply('unsuccessful').code(404);
                 } else {
-                    var finalResult = JSON.stringify(result); //check
+                    // var finalResult = JSON.stringify(result); //check
+                    var finalResult = callbackFn + "(" + JSON.stringify(result) + ");"; //the callback should exist on the client side
                     return reply(finalResult).code(200);
                 }
                 
