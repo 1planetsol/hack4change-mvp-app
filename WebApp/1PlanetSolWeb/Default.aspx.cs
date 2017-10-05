@@ -28,7 +28,50 @@ namespace _1PlanetSolWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //getSolarData();
+            findURIs();
+        }
+
+        private void findURIs()
+        {
+            var max = 50000;
+            var allURIs = new StringBuilder();
+            var uri = "";
+            HttpWebRequest httpRequest;
+            HttpWebResponse httpResponse;
+
+            for (int i = 0; i < max; i++)
+            {
+                uri = string.Format("http://lg{0}.d.lighthousesolar.com/cgi-bin/egauge-show", i);
+                try
+                {
+                    httpRequest = (HttpWebRequest)WebRequest.Create(uri);
+                    httpRequest.Credentials = CredentialCache.DefaultCredentials;
+                    httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+
+                    //dataStream = httpResponse.GetResponseStream();
+                    using (TextFieldParser parser = new TextFieldParser(httpResponse.GetResponseStream()))
+                    {
+                        string header = parser.ReadLine();
+                        parser.Delimiters = new string[] { "," };
+
+                        if (!parser.EndOfData)
+                        {
+                            //Process row
+                            string[] fields = parser.ReadFields();
+                            if (fields.Length > 0)
+                            {
+                                //ensure there is at least 1 line of real data
+                                allURIs.AppendLine(uri);
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    //Console.WriteLine(e.Message);
+                }
+            }
+            var output = allURIs.ToString();
         }
 
         [WebMethod]

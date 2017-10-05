@@ -248,24 +248,31 @@
 
     var fetchData = function (json, dataURL) {
         return $.ajax({
-            data: json,
-            dataType: "json",
-            //url: 'https://us15.api.mailchimp.com/3.0/lists/a191a6cb8b/members/',
+            data: {},
+            dataType: 'jsonp',
+            jsonp: "results",
             url: dataURL,
-            type: "POST",
-            contentType: "application/json;charset=utf-8"
+            type: 'GET'
         });
     };
 
     (function poll() {
         setTimeout(function () {
-            var solarData = fetchData('', '/data/getRecent?timePeriod=day');
+
+            $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day?callback=?", function (json) {
+                console.log(json);
+            });
+
+            /*
+            var solarData = fetchData('', 'http://34.201.150.94:3000/data/getRecent?timePeriod=day');
+
             solarData.done(function (data) {
                 //var obj = JSON.parse(data.d);
+                alert('data done d: ' + data.d);
             });
             solarData.success(function (data) {
                 if (data.d) {
-                    //alert('data success d: ' + data.d);
+                    alert('data success d: ' + data.d);
                     var obj = JSON.parse(data.d);
                     var energy = obj.series[0].values;
                     var saved = energy * .106;
@@ -277,22 +284,25 @@
                     $('#amountSavedSmall').html(saved);
                     $('#tonnesSmall').html(tonnes);
                 }
-                //else
-                //    alert('data success but no data');
+                else
+                    alert('data success but no data');
             });
-
+            solarData.complete(function (data) {
+                alert('complete: ' + data.value);
+            });
             solarData.error(function (data) {
                 //var obj = JSON.parse(data.d);
-                //alert('data error: ' + data.value);
+                alert('data error: ' + data.value);
             });
             solarData.fail(function (data) {
                 //var obj = JSON.parse(data.d);
                 //alert('data fail: ' + data.d);
             });
-            solarData.complete(poll);
-
+            //solarData.complete(poll);
+            */
         }, 2000);
     })();
+
     /*
 	$('#subscribe').click(function (event) {
 		var obj = new Object();
