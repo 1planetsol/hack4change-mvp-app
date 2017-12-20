@@ -62,6 +62,72 @@
     <div class='blurred-container'>
         <div class="motto">
             <div class="hidden-sm hidden-xs">
+				<div class="row">
+					<div class="col-sm-1"></div>
+					<div class="col-sm-10">
+						<div class="row">
+							<div class="col-sm-4 ">
+								<div class="ps-tile ps-yellow">
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="ps-statsHeader">&nbsp;</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p id="numFamilies" class="ps-stats">6</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="">Families Powered</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 ">
+								<div class="ps-tile ps-yellow">
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="ps-statsHeader">&nbsp;</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p id="dollars" class="ps-stats">$120k</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="">Dollars Saved</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 ">
+								<div class="ps-tile ps-yellow">
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="ps-statsHeader">&nbsp;</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p id="earthYears" class="ps-stats">.1</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="">Earth Years Added</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+				<!--
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-2 ps-center">
@@ -107,6 +173,7 @@
                     </div>
                     <div class="col-sm-2"></div>
                 </div>
+				-->
             </div>
             <div class="visible-sm visible-xs">
                 <p class="ps-statsSmall">Families Powered:&nbsp;6</p>
@@ -245,7 +312,21 @@
 
 <script src="assets/js/custom.js"></script>
 <script type="text/javascript">
-
+	//var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day?callbackFn=?", function (json) {
+	var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day", function (json) {
+		console.log("success!");
+		var result = JSON.parse(json);
+	})
+	.done(function() {
+	console.log( "second success" );
+	})
+	.fail(function() {
+	console.log( "error" );
+	})
+	.always(function() {
+	console.log( "complete" );
+	});
+/*
     var fetchData = function (json, dataURL) {
         return $.ajax({
             data: {},
@@ -262,9 +343,10 @@
             $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day?callbackFn=?", function (json) {
                 console.log("success! ");
                 console.log(json);
+				JSON.parse(data.d)
             });
 
-            /*
+            
             var solarData = fetchData('', 'http://34.201.150.94:3000/data/getRecent?timePeriod=day');
 
             solarData.done(function (data) {
@@ -300,30 +382,9 @@
                 //alert('data fail: ' + data.d);
             });
             //solarData.complete(poll);
-            */
-        }, 2000);
+            
+        }, 8000);
     })();
-
-    /*
-	$('#subscribe').click(function (event) {
-		var obj = new Object();
-		obj.emailAddr = 'matthew.ross@hartehanks.com';
-		var dataJson = JSON.stringify(obj);
-        var subscribed = fetchData(dataJson, 'Default.aspx/Subscribe');
-		subscribed.done(function (data) {
-			if (data.d) {
-				var obj = JSON.parse(data.d);
-				alert('data: ' + data.d);
-			}
-		})
-
-		//show alert if webservice error
-		subscribed.fail(function (jqXHR, textStatus, errorThrown) {
-			alert(textStatus + ': ' + errorThrown);
-		});
-
-		return false;
-	});
-    */
+*/
 </script>
 </body>
