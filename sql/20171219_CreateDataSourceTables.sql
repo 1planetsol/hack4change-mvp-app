@@ -6,7 +6,7 @@ BEGIN
 	CREATE TABLE [dbo].[DataSource]
 	(
 		DataSourceId			INT IDENTITY(1,1) NOT NULL
-		URI						VARCHAR(20) NOT NULL,
+		URI						VARCHAR(100) NOT NULL,
 		SourceNameId			INT
 		
 	) ON [PRIMARY]
