@@ -62,6 +62,72 @@
     <div class='blurred-container'>
         <div class="motto">
             <div class="hidden-sm hidden-xs">
+				<div class="row">
+					<div class="col-sm-1"></div>
+					<div class="col-sm-10">
+						<div class="row">
+							<div class="col-sm-4 ">
+								<div class="ps-tile ps-yellow">
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="ps-statsHeader">&nbsp;</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p id="numFamilies" class="ps-stats">6</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="">Families Powered</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 ">
+								<div class="ps-tile ps-yellow">
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="ps-statsHeader">&nbsp;</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p id="dollars" class="ps-stats">$120k</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="">Dollars Saved</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 ">
+								<div class="ps-tile ps-yellow">
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="ps-statsHeader">&nbsp;</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p id="earthYears" class="ps-stats">.1</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 ps-center">
+											<p class="">Earth Years Added</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+				<!--
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-2 ps-center">
@@ -107,6 +173,7 @@
                     </div>
                     <div class="col-sm-2"></div>
                 </div>
+				-->
             </div>
             <div class="visible-sm visible-xs">
                 <p class="ps-statsSmall">Families Powered:&nbsp;6</p>
@@ -245,85 +312,25 @@
 
 <script src="assets/js/custom.js"></script>
 <script type="text/javascript">
-
-    var fetchData = function (json, dataURL) {
-        return $.ajax({
-            data: {},
-            dataType: 'jsonp',
-            jsonp: "results",
-            url: dataURL,
-            type: 'GET'
-        });
-    };
-
-    (function poll() {
-        setTimeout(function () {
-
-            $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day?callbackFn=?", function (json) {
-                console.log("success! ");
-                console.log(json);
-            });
-
-            /*
-            var solarData = fetchData('', 'http://34.201.150.94:3000/data/getRecent?timePeriod=day');
-
-            solarData.done(function (data) {
-                //var obj = JSON.parse(data.d);
-                alert('data done d: ' + data.d);
-            });
-            solarData.success(function (data) {
-                if (data.d) {
-                    alert('data success d: ' + data.d);
-                    var obj = JSON.parse(data.d);
-                    var energy = obj.series[0].values;
-                    var saved = energy * .106;
-                    var tonnes = energy * .000703;
-
-                    $('#amountSaved').html(saved);
-                    $('#tonnes').html(tonnes);
-
-                    $('#amountSavedSmall').html(saved);
-                    $('#tonnesSmall').html(tonnes);
-                }
-                else
-                    alert('data success but no data');
-            });
-            solarData.complete(function (data) {
-                alert('complete: ' + data.value);
-            });
-            solarData.error(function (data) {
-                //var obj = JSON.parse(data.d);
-                alert('data error: ' + data.value);
-            });
-            solarData.fail(function (data) {
-                //var obj = JSON.parse(data.d);
-                //alert('data fail: ' + data.d);
-            });
-            //solarData.complete(poll);
-            */
-        }, 2000);
-    })();
-
-    /*
-	$('#subscribe').click(function (event) {
-		var obj = new Object();
-		obj.emailAddr = 'matthew.ross@hartehanks.com';
-		var dataJson = JSON.stringify(obj);
-        var subscribed = fetchData(dataJson, 'Default.aspx/Subscribe');
-		subscribed.done(function (data) {
-			if (data.d) {
-				var obj = JSON.parse(data.d);
-				alert('data: ' + data.d);
-			}
-		})
-
-		//show alert if webservice error
-		subscribed.fail(function (jqXHR, textStatus, errorThrown) {
-			alert(textStatus + ': ' + errorThrown);
-		});
-
-		return false;
+	//var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day?callbackFn=?", function (json) {
+	var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day", function (json) {
+		console.log("success!");
+		var result = JSON.parse(json);
+		alert('json: ' + json);
+	})
+	.done(function() {
+		console.log( "second success" );
+	})
+	.fail(function() {
+		console.log( "error" );
+		var testVals = [877, 347891, .11];
+		$('#numFamilies').html(testVals[0]);
+		$('#dollars').html('$' + testVals[1]);
+		$('#earthYears').html(testVals[2]);
+	})
+	.always(function() {
+		console.log( "complete" );
 	});
-    */
+
 </script>
 </body>

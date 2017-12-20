@@ -228,3 +228,17 @@ Styles specific to 1planetsol.org
 .ps-white {
     color: #ffffff !important;
 }
+
+.ps-tile {
+	width: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+	background: #fff;		
+	padding: 20px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+}
+
+.ps-yellow {
+	background: rgba(154,205,50,.35);
+}
