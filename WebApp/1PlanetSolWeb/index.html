@@ -312,10 +312,10 @@
 
 <script src="assets/js/custom.js"></script>
 <script type="text/javascript">
-    //var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day?callbackFn=?", function (json) {
-    var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day", function (json) {
+    var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day?callbackFn=?", function (json) {
+    //var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day", function (json) {
         console.log("success!");
-        var result = JSON.parse(json);
+        //var result = JSON.parse(json);
         alert('json: ' + json);
     })
     .done(function() {
