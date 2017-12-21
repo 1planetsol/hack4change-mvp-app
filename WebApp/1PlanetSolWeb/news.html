@@ -59,8 +59,31 @@
                 </div><!-- /.container-fluid -->
             </nav>
         </div><!--  end container-->
-
     </div>
+	
+	<div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
+				</div>
+				<div class="modal-body">
+					<p class="ps-font-Nunito ps-rowpad">Thank you for your interest in 1PlanetSol, and bringing the benefits of solar to everyone!</p>
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-envelope"></i>
+						</span>
+						<input type="text" class="form-control"/>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Invite me to the Launch!</button>
+				</div>
+			</div>
+		</div>
+	</div> 
+	
     <div class="main">
         <div class="container">
             <div class="space-60"></div><div class="space-60"></div>
@@ -142,7 +165,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="ps-center">
-                                <button class="btn btn-default ps-btn text-blue" type="button"><strong>Subscribe</strong></button>
+                                <button class="btn btn-default ps-btn text-blk" type="button" data-toggle="modal" data-target="#subscribeModal">Invite me to the launch!</button>
                             </div>
                         </div>
                     </div>
