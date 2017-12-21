@@ -9,8 +9,8 @@ exports.getPreviousDayStats = function(callback){
         console.log('prev day results in service ', results);
         //for integration testing of summarized results
         //families served, dollars saved, earth years (null for now)
-        results = [ 14, 20000, null];
-        callback(null, results);
+        var testResult = [ 14, 20000, null];
+        callback(null, testResult);
     })
 }
 exports.getPreviousHourStats = function(callback){ //update query for last hour data once data refreshing on schedule
