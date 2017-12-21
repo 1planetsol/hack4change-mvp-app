@@ -8,8 +8,8 @@ exports.getPreviousDayStats = function(callback){
     stats.searchMeasurements(query, function(results){
         console.log('prev day results in service ', results);
         //for integration testing of summarized results
-        results = { 'total-energy-generated': 192640.8141,
-                    'total-energy-consumed': 171540.4120  }
+        //families served, dollars saved, earth years (null for now)
+        results = [ 14, 20000, null];
         callback(null, results);
     })
 }
