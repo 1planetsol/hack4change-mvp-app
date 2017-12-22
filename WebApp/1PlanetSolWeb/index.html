@@ -312,18 +312,18 @@
 
 <script src="assets/js/custom.js"></script>
 <script type="text/javascript">
-    var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day&callback=?", function (json) {
+    var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day&callback=?", function () {
     //var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day", function (json) {
         console.log("success!");
-        var result = JSON.parse(json);
-        alert('json: ' + json);
-        alert('result: ' + result);
+        //var result = JSON.parse(json);
+        //alert('json: ' + json);
+        //alert('result: ' + result);
     })
     .done(function() {
         console.log( "second success" );
     })
-    .fail(function() {
-        console.log( "error" );
+    .fail(function(error) {
+        console.log( "error:" + e );
         var testVals = [877, 347891, .11];
         $('#numFamilies').html(testVals[0]);
         $('#dollars').html('$' + testVals[1]);
