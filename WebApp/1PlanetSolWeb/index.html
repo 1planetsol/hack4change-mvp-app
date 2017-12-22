@@ -319,6 +319,7 @@
     fetch(uri).then(function(response) {
       response.text().then(function(text){
         alert('text:' + text);
+        });
     });
 
     var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day&callback=?", function () {
