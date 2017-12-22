@@ -319,13 +319,13 @@
 
     var init = { method: 'GET',
                    headers: myHeaders,
-                   mode: 'no-cors',
+                   mode: 'cors',
                    cache: 'default' };
 
     fetch(uri, init).then(function(response) {
           if(response.ok) {
-                response.json().then(function(json){
-                alert('text:' + json);
+                response.text().then(function(text){
+                alert('text:' + text);
                 });
           } else {
             console.log('Network request failed with response ' + response.status + ': ' + response.statusText);
