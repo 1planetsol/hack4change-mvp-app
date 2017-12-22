@@ -323,10 +323,14 @@
                    cache: 'default' };
 
     fetch(uri, init).then(function(response) {
-      response.text().then(function(text){
-        alert('text:' + text);
-        });
-    });
+          if(response.ok) {
+                response.json().then(function(json){
+                alert('text:' + json);
+                });
+          } else {
+            console.log('Network request failed with response ' + response.status + ': ' + response.statusText);
+          }
+      });
 
     var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day&callback=?", function () {
     //var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day", function (json) {
