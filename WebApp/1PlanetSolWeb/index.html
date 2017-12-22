@@ -315,8 +315,12 @@
 
     var uri = 'http://34.201.150.94:3000/data/getRecent?timePeriod=day';
 
+    var init = { method: 'GET',
+                   headers: myHeaders,
+                   mode: 'no-cors',
+                   cache: 'default' };
 
-    fetch(uri).then(function(response) {
+    fetch(uri, init).then(function(response) {
       response.text().then(function(text){
         alert('text:' + text);
         });
