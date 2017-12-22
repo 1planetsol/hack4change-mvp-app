@@ -312,6 +312,23 @@
 
 <script src="assets/js/custom.js"></script>
 <script type="text/javascript">
+
+    var uri = 'http://34.201.150.94:3000/data/getRecent?timePeriod=day');
+
+
+var jqxhr = $.get( uri, function() {
+  alert( "success1" );
+})
+  .done(function() {
+    alert( "second success1" );
+  })
+  .fail(function() {
+    alert( "error1" );
+  })
+  .always(function() {
+    alert( "finished1" );
+  });
+
     var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day&callback=?", function () {
     //var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day", function (json) {
         console.log("success!");
