@@ -313,25 +313,21 @@
 <script src="assets/js/custom.js"></script>
 <script type="text/javascript">
 
-    var uri = 'http://34.201.150.94:3000/data/getRecent?timePeriod=day';
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://34.201.150.94:3000/data/getRecent?timePeriod=day",
+      "method": "GET",
+      "headers": {
+        "cache-control": "no-cache"
+      }
+    }
 
-    var myHeaders = new Headers();
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
 
-    var init = { method: 'GET',
-                   headers: myHeaders,
-                   mode: 'cors',
-                   cache: 'default' };
-
-    fetch(uri, init).then(function(response) {
-          if(response.ok) {
-                response.text().then(function(text){
-                alert('text:' + text);
-                });
-          } else {
-            console.log('Network request failed with response ' + response.status + ': ' + response.statusText);
-          }
-      });
-
+/*
     var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day&callback=?", function () {
     //var result = $.getJSON("http://34.201.150.94:3000/data/getRecent?timePeriod=day", function (json) {
         console.log("success!");
@@ -352,5 +348,6 @@
     .always(function() {
         console.log( "complete" );
     });
+    */
 </script>
 </body>
