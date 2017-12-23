@@ -325,7 +325,22 @@
     }
 
     $.ajax(settings).done(function (response) {
-      console.log(response);
+      console.log('first: ' + response);
+    });
+
+    settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://34.201.150.94:3000/data/getRecent?timePeriod=day",
+      "method": "GET",
+      "headers": {
+        "cache-control": "no-cache",
+        "postman-token": "e62b7a76-d32c-05d0-49bb-1df441990f7e"
+      }
+    }
+
+    $.ajax(settings).done(function (response) {
+      console.log('second: ' + response);
     });
 
 /*
