@@ -21,7 +21,9 @@ exports.getStats = {
                 if(err){
                     return reply('unsuccessful').code(404);
                 } else {
-                    var finalResult = JSON.stringify(result);
+                    var obj = new Object();
+                    obj.stats = result;
+                    var finalResult = JSON.stringify(obj);
                     // var finalResult = callbackFn + "(" + JSON.stringify(result) + ");"; //the callback should exist on the client side
                     return reply(finalResult).code(200);
                 }
