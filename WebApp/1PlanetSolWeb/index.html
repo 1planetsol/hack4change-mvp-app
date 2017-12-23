@@ -316,8 +316,12 @@
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://34.201.150.94:3000/data/getRecent?timePeriod=day",
-      "method": "GET"
+      "url": "http://34.201.150.94:3000/data/getRecent?timePeriod=day&callbackFn=tst",
+      "method": "GET",
+      "headers": {
+        "cache-control": "no-cache",
+        "postman-token": "789108dc-2e9b-52f2-544c-d37442b0be19"
+      }
     }
 
     $.ajax(settings).done(function (response) {
