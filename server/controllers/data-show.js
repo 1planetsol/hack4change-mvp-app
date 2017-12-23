@@ -8,11 +8,11 @@ exports.getStats = {
     tags: ['api'],
     validate: {
         query: Joi.object({
-            timePeriod: Joi.string().required(), // possible values = 'day', 'hour'
-            callbackFn: Joi.string().optional()
+            timePeriod: Joi.string().required()//, // possible values = 'day', 'hour'
+            //callbackFn: Joi.string().optional()
         }).unknown()
     },
-    jsonp: 'callbackFn', // client function provided for wrapping jsonP
+    //jsonp: 'callbackFn', // client function provided for wrapping jsonP
     handler : function(request, reply) {
 
         if(request.query.timePeriod === 'day'){
