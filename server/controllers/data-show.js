@@ -6,6 +6,10 @@ var internals = {};
 
 exports.getStats = {
     tags: ['api'],
+    cors: {
+        origin: ['*', '34.201.150.94'],
+        additionalHeaders: ['']
+    },
     validate: {
         query: Joi.object({
             timePeriod: Joi.string().required(), // possible values = 'day', 'hour'
@@ -21,6 +25,7 @@ exports.getStats = {
                 if(err){
                     return reply('unsuccessful').code(404);
                 } else {
+                    request.headers
                     var finalResult = { data: result }
                     //var finalResult = JSON.stringify(obj);
                     // var finalResult = callbackFn + "(" + JSON.stringify(result) + ");"; //the callback should exist on the client side
