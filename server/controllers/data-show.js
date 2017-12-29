@@ -6,10 +6,6 @@ var internals = {};
 
 exports.getStats = {
     tags: ['api'],
-    cors: {origin: ['*', '34.201.150.94'],
-    'access-control-request-method': 'GET',
-    'access-control-request-headers': ''
-    },
     validate: {
         query: Joi.object({
             timePeriod: Joi.string().required(), // possible values = 'day', 'hour'

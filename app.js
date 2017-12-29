@@ -8,7 +8,12 @@ const scheduler = require('./server/scheduler');
 
 //create a new server
 var server = new Hapi.Server();
-server.connection({ port: 3000});
+server.connection({ port: 3000}, 
+                  {routes: {cors: {
+                                origin: ['*', '34.201.150.94']
+                                }
+                            }
+                  });
 
 console.log('check process.env.NODE_ENV: ', process.env.NODE_ENV);
 
@@ -53,6 +58,17 @@ server.register([
 
     //add the routes
     server.route(Routes.endpoints);
+
+server.inject({method: 'OPTIONS', url:'/', headers: {
+    origin: 'http://test.example.com',
+    'access-control-request-method': 'GET',
+    'access-control-request-headers': ''
+}}, (res) => {
+
+    console.log(res.headers);
+    console.log(res.payload);
+    console.log(res.statusCode);
+});
 
     server.start(function(err){
       if(err){
