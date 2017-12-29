@@ -8,7 +8,7 @@ exports.getStats = {
     tags: ['api'],
     cors: {
         origin: ['*', '34.201.150.94'],
-        additionalHeaders: ['']
+        headers: ['Access-Control-Allow-Origin','Access-Control-Allow-Headers']
     },
     validate: {
         query: Joi.object({
