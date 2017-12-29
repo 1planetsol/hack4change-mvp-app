@@ -1,15 +1,13 @@
 var Boom = require('boom');
 var Joi = require('joi');
 var DataSearch = require('../services/data-show.js');
+const Routes = require('./routes');
 
 var internals = {};
 
 exports.getStats = {
     tags: ['api'],
-    cors: {
-        origin: ['*', '34.201.150.94'],
-        headers: ['Access-Control-Allow-Origin','Access-Control-Allow-Headers']
-    },
+    cors: true,
     validate: {
         query: Joi.object({
             timePeriod: Joi.string().required(), // possible values = 'day', 'hour'
