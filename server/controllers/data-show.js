@@ -1,7 +1,6 @@
 var Boom = require('boom');
 var Joi = require('joi');
 var DataSearch = require('../services/data-show.js');
-const Routes = require('./routes');
 
 var internals = {};
 

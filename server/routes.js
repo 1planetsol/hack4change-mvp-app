@@ -1,6 +1,6 @@
 const Ops = require('./controllers/ops');
-const DataLoad = require('./controllers/data-load.js');
-const Search = require('./controllers/aggregations.js');
+//const DataLoad = require('./controllers/data-load.js');
+//const Search = require('./controllers/aggregations.js');
 const Data = require('./controllers/data-show.js');
 
 exports.endpoints = [
