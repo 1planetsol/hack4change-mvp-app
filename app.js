@@ -9,11 +9,7 @@ const scheduler = require('./server/scheduler');
 //create a new server
 var server = new Hapi.Server();
 server.connection({ port: 3000}, 
-                  {routes: {cors: {
-                                origin: ['*', '34.201.150.94']
-                                }
-                            }
-                  });
+                  );
 
 console.log('check process.env.NODE_ENV: ', process.env.NODE_ENV);
 
